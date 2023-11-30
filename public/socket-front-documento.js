@@ -3,11 +3,13 @@ import { atualizTextoEditor } from "./documento.js";
 const socket = io();
 
 function selecionarDocumento(nome) {
-  socket.emit("selecionar-documento", nome);
+  socket.emit("selecionar-documento", nome, (texto) => {
+    atualizTextoEditor(texto);
+  });
 }
 
-function emitirTextoEditor(texto) {
-  socket.emit("textoFrontParaBack", texto);
+function emitirTextoEditor(dados) {
+  socket.emit("textoFrontParaBack", dados);
 }
 
 socket.on("texto-frontEnd-clientes", (texto) => {

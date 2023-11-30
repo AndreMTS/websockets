@@ -14,7 +14,10 @@ selecionarDocumento(nomeDocumento);
 let editorTexto = document.querySelector("#editor-texto");
 
 editorTexto.addEventListener("keyup", () => {
-  emitirTextoEditor(editorTexto.value);
+  emitirTextoEditor({
+    texto: editorTexto.value,
+    nomeDocumento,
+  });
 });
 
 function atualizTextoEditor(texto) {
