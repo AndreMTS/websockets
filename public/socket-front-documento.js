@@ -1,10 +1,10 @@
-import { atualizTextoEditor } from "./documento.js";
+import { atualizarTextoEditor } from "./documento.js";
 
 const socket = io();
 
 function selecionarDocumento(nome) {
   socket.emit("selecionar-documento", nome, (texto) => {
-    atualizTextoEditor(texto);
+    atualizarTextoEditor(texto);
   });
 }
 
@@ -13,7 +13,7 @@ function emitirTextoEditor(dados) {
 }
 
 socket.on("texto-frontEnd-clientes", (texto) => {
-  atualizTextoEditor(texto);
+  atualizarTextoEditor(texto);
 });
 
 export { emitirTextoEditor, selecionarDocumento };

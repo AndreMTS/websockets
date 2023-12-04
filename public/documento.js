@@ -20,8 +20,8 @@ editorTexto.addEventListener("keyup", () => {
   });
 });
 
-function atualizTextoEditor(texto) {
+function atualizarTextoEditor(texto) {
   editorTexto.value = texto;
 }
 
-export { atualizTextoEditor };
+export { atualizarTextoEditor };
