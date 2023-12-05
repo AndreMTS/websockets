@@ -5,9 +5,9 @@ const form = document.querySelector("#form-cadastro");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  const usuario = form["input-usuario"].value;
+  const nome = form["input-usuario"].value;
   const senha = form["input-senha"].value;
 
-  emitirCadastrarUsuario({ usuario, senha });
+  emitirCadastrarUsuario({ nome, senha });
   console.log(usuario, senha);
 });
