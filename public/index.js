@@ -1,33 +1,31 @@
-import { emitAdicionarDocumento } from "./socket-front-index.js";
+import { emitirAdicionarDocumento } from "./socket-front-index.js";
 
-const listaDocumento = document.querySelector("#lista-documentos");
-const formAdicionaDocumento = document.querySelector(
-  "#form-adiciona-documento"
-);
-const inputDocumento = document.querySelector("#input-documento");
+const listaDocumentos = document.getElementById("lista-documentos");
+const form = document.getElementById("form-adiciona-documento");
+const inputDocumento = document.getElementById("input-documento");
 
-formAdicionaDocumento.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  emitAdicionarDocumento(inputDocumento.value);
+form.addEventListener("submit", (evento) => {
+  evento.preventDefault();
+  emitirAdicionarDocumento(inputDocumento.value);
   inputDocumento.value = "";
 });
 
 function inserirLinkDocumento(nomeDocumento) {
-  listaDocumento.innerHTML += `
-    <a href="documento.html?nome=${nomeDocumento}" 
-       class="list-group-item list-group-item-action"
-       id="documento-${nomeDocumento}"
-       >
-            ${nomeDocumento}
+  listaDocumentos.innerHTML += `
+    <a
+      href="/documento/index.html?nome=${nomeDocumento}"
+      class="list-group-item list-group-item-action"
+      id="documento-${nomeDocumento}"
+    >
+      ${nomeDocumento}
     </a>
   `;
 }
 
 function removerLinkDocumento(nomeDocumento) {
-  const documento = document.querySelector(`#documento-${nomeDocumento}`);
+  const documento = document.getElementById(`documento-${nomeDocumento}`);
 
-  listaDocumento.removeChild(documento);
+  listaDocumentos.removeChild(documento);
 }
 
 export { inserirLinkDocumento, removerLinkDocumento };
