@@ -1,21 +1,20 @@
 import { MongoClient } from "mongodb";
 
-const client = new MongoClient(
+const cliente = new MongoClient(
   "mongodb+srv://andre:alura99*@clustematos0.nwbtwni.mongodb.net/?retryWrites=true&w=majority"
 );
 
 let documentosColecao;
 
 try {
-  await client.connect();
+  await cliente.connect();
 
-  const db = client.db("alura-websockets");
-
+  const db = cliente.db("alura-websockets");
   documentosColecao = db.collection("documentos");
 
-  //console.log('Conectado com sucesso');
-} catch (error) {
-  console.log(error);
+  console.log("Conectado ao banco de dados com sucesso!");
+} catch (erro) {
+  console.log(erro);
 }
 
 export { documentosColecao };
