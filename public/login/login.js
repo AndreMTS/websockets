@@ -1,4 +1,8 @@
 import { emitirAutenticarUsuario } from "./socket-front-login.js";
+import { obterCookie } from "./utils/cookies.js";
+
+const tokenJwt = obterCookie("tokenJwt");
+console.log(tokenJwt);
 
 const form = document.querySelector("#form-login");
 

@@ -1,6 +1,10 @@
 import { alertarExcluirDocumento, atualizarTextoEditor } from "./documento.js";
 
-const socket = io();
+const socket = io("/usuarios", {
+  auth: {
+    token: obterCookie("tokenJwt"),
+  },
+});
 
 function selecionarDocumento(nome) {
   socket.emit("selecionar-documento", nome, (texto) => {

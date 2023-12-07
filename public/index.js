@@ -1,4 +1,16 @@
+import { obterCookie, removerCookie } from "./login/utils/cookies.js";
 import { emitirAdicionarDocumento } from "./socket-front-index.js";
+
+const tokenJwt = obterCookie("tokenJwt");
+console.log(tokenJwt);
+
+const botaoLogout = document.getElementById("botao-logout");
+
+botaoLogout.addEventListener("click", () => {
+  removerCookie("tokenJwt");
+  alert("Usuario deslogado com sucesso!");
+  window.location.href = "/login/index.html";
+});
 
 const listaDocumentos = document.getElementById("lista-documentos");
 const form = document.getElementById("form-adiciona-documento");
