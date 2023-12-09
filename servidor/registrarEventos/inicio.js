@@ -25,4 +25,5 @@ function registrarEventosInicio(socket, io) {
     }
   });
 }
+
 export default registrarEventosInicio;

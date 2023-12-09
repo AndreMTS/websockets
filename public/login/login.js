@@ -1,13 +1,9 @@
 import { emitirAutenticarUsuario } from "./socket-front-login.js";
-import { obterCookie } from "./utils/cookies.js";
 
-const tokenJwt = obterCookie("tokenJwt");
-console.log(tokenJwt);
+const form = document.getElementById("form-login");
 
-const form = document.querySelector("#form-login");
-
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
+form.addEventListener("submit", (evento) => {
+  evento.preventDefault();
 
   const nome = form["input-usuario"].value;
   const senha = form["input-senha"].value;

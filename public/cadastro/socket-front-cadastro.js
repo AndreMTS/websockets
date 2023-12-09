@@ -1,17 +1,11 @@
 const socket = io();
 
-function emitirCadastrarUsuario(dadosUsuarios) {
-  socket.emit("cadastrar_usuario", dadosUsuarios);
+function emitirCadastrarUsuario(dados) {
+  socket.emit("cadastrar_usuario", dados);
 }
 
-socket.on("cadastrar_sucesso", () => {
-  alert("Cadastro realizado com sucesso!");
-});
-socket.on("cadastrar_erro", () => {
-  alert("erro ao realizada cadastro!");
-});
-socket.on("usuario_ja_existente", () => {
-  alert("usuario ja existente!");
-});
+socket.on("cadastro_sucesso", () => alert("Cadastro realizado com sucesso!"));
+socket.on("cadastro_erro", () => alert("Erro no cadastro."));
+socket.on("usuario_ja_existente", () => alert("Usuário já existe!"));
 
 export { emitirCadastrarUsuario };
