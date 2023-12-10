@@ -19,6 +19,11 @@ function selecionarDocumento(dadosEntrada) {
   });
 }
 
+socket.on("usuarios_ja_no_documento", () => {
+  alert("Documento ja aberto em outra pagina")
+  window.location.href ="/"
+})
+
 socket.on("usuarios_no_documento", atualizarInterfaceUsuarios);
 
 function emitirTextoEditor(dados) {
